@@ -81,7 +81,7 @@ int queue_add(queue_t *q, int val) {
 	qnode_t *new = malloc(sizeof(qnode_t));
 	if (new == NULL) {
 		fprintf(stderr, "Cannot allocate memory for new node\n"); 
-		pthread_exit(NULL);
+		return -1;
 	}
 
 	new->val = val;
@@ -126,4 +126,3 @@ void queue_print_stats(queue_t *q) {
 		q->add_attempts, q->get_attempts, q->add_attempts - q->get_attempts,
 		q->add_count, q->get_count, q->add_count -q->get_count);
 }
-
